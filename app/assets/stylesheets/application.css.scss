@@ -13,6 +13,7 @@
 /* COMPONENTS */
 @import "component/landing-zone";
 @import "component/button";
+@import "component/carousel";
 
 .grid-container {
   @include outer-container;

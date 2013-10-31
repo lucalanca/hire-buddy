@@ -6,12 +6,21 @@
 		text-align: center;
 		color: white;
 	}
-	.title      { @extend .gamma; }
-	.subtitle   { @extend .zeta; }
+	height: 450px;
+	.title      { @extend .beta; text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9) }
+	.subtitle   { @extend .delta; text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9) }
 	&.c1 { background: $color1; }
 	&.c2 { background: $color2; }
 	&.c3 { background: $color3; }
 	&.c4 { background: $color4; }
+
+
+	&.image1 { background: 	url('/assets/office1-ts.jpg'); background-size: cover;}
+	&.image2 { background: 	url('/assets/office2-ts.jpg'); background-size: cover;}
+	&.image3 { background: 	url('/assets/office3-ts.jpg'); background-size: cover;}
+	&.image4 { background: 	url('/assets/office4-ts.jpg'); background-size: cover;}
+	&.image5 { background: 	url('/assets/office5-ts.jpg'); background-size: cover;}
+	
 }
 
 .bottom-border-container {

@@ -1,0 +1,36 @@
+.carousel { 
+	position: relative; overflow: auto; 
+	li { list-style: none; }
+	ul li { float: left; }
+	ul { margin: 0; padding: 0;}
+}
+
+.carousel .dots {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;	
+	margin: 0 auto;
+	width: 130px
+
+}
+.carousel .dots li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 4px;
+
+	text-indent: -999em;
+
+	border: 2px solid #fff;
+	border-radius: 6px;
+
+	cursor: pointer;
+	opacity: .4;
+
+	@include transition (background .5s, opacity .5s);
+}
+.carousel .dots li.active {
+	background: #fff;
+	opacity: 1;
+}

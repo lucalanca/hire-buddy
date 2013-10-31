@@ -1,0 +1,23 @@
+@import "normalize";
+@import "bourbon";
+@import "config/grid-settings";
+@import "neat";
+
+@import "vendor/vendor";
+
+@import "config/variables";
+
+/* BASE STYLING */
+@import "typography";
+
+/* COMPONENTS */
+@import "component/landing-zone";
+@import "component/button";
+
+.grid-container {
+  @include outer-container;
+}
+
+html, body {
+	height: 100%;
+}

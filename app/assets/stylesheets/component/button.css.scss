@@ -1,0 +1,128 @@
+//---------------- 
+// Button Sizes
+//----------------
+
+%btn-base {
+	padding: $padding-base-vertical $padding-base-horizontal;
+	font-size: 16px;
+	border-width: 3px !important;
+}
+
+.btn-large {
+	padding: $padding-large-vertical $padding-large-horizontal;
+	font-size: 18px;
+	border-width: 4px !important;
+}
+
+.btn-small {
+	padding: $padding-small-vertical $padding-small-horizontal;
+	font-size: 12px;
+	border-width: 2px !important;
+}
+
+
+
+//---------------- 
+// Button Styles
+//----------------
+
+%btn {
+	@extend %btn-base;
+	border: none;
+	// font-size: inherit;
+	//color: inherit;
+	background: none;
+	cursor: pointer;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	@include transition (all 0.3s ease-in-out);
+	&:after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		@include transition (all 0.3s ease-in-out);
+	}
+}
+
+.btn-border {
+	$c1: $color1;
+	$c2: white;
+	@extend %btn;
+	border-style: solid;
+	//border-color: $c1;
+	//color: $c1;
+	&:hover, &:active {
+		color: $c2;
+		background: $c1;
+	}
+	&:after {
+		width: 100%;
+		height: 0;
+		top: 0;
+		left: 0;
+		background: #fff;
+	}
+}
+
+.btn-border-on-color {
+	@extend .btn-border;
+	color: white;
+	border-color: white;
+	&:hover, &:active {
+		background: white;
+		color: $color1;
+	}
+}
+
+
+//---------------- 
+// Button Colors
+//----------------
+
+.c1 {
+	&.btn-border {
+		border-color: $color1;
+		color: $color1;
+		&:hover, &:active {
+			background: $color1;
+			color: white;
+		}
+	}
+}
+
+.c2 {
+	&.btn-border {
+		border-color: $color2;
+		color: $color2;
+		&:hover, &:active {
+			background: $color2;
+			color: white;
+		}
+	}
+}
+
+.c3 {
+	&.btn-border {
+		border-color: $color3;
+		color: $color3;
+		&:hover, &:active {
+			background: $color3;
+			color: white;
+		}
+	}
+}
+.c4 {
+	&.btn-border {
+		border-color: $color4;
+		color: $color4;
+		&:hover, &:active {
+			background: $color4;
+			color: white;
+		}
+	}
+}

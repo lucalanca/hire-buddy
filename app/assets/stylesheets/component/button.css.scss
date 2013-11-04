@@ -69,6 +69,12 @@
 	}
 }
 
+.btn-flat {
+	@extend %btn;
+	color: white;
+	border-radius: 5px;
+}
+
 .btn-border-on-color {
 	@extend .btn-border;
 	color: white;
@@ -93,6 +99,11 @@
 			color: white;
 		}
 	}
+	&.btn-flat {
+		background: $color1;
+		&:hover  { background: darken($color1, 10%); }
+		&:active { background: darken($color1, 20%); }
+	}
 }
 
 .c2 {
@@ -103,6 +114,11 @@
 			background: $color2;
 			color: white;
 		}
+	}
+	&.btn-flat {
+		background: $color2;
+		&:hover  { background: darken($color2, 10%); }
+		&:active { background: darken($color2, 20%); }
 	}
 }
 
@@ -115,6 +131,11 @@
 			color: white;
 		}
 	}
+	&.btn-flat {
+		background: $color3;
+		&:hover  { background: darken($color3, 10%); }
+		&:active { background: darken($color3, 20%); }
+	}
 }
 .c4 {
 	&.btn-border {
@@ -124,5 +145,10 @@
 			background: $color4;
 			color: white;
 		}
+	}
+	&.btn-flat {
+		background: $color4;
+		&:hover  { background: darken($color4, 10%); }
+		&:active { background: darken($color4, 20%); }
 	}
 }

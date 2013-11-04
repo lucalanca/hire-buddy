@@ -1,0 +1,18 @@
+Hello %{Company},
+I saw your %{Position} position on %{Source} recently.
+
+I’m building a product that will help companies hire the best people, and I hope
+you might be open in sharing some insights about your process for evaluating
+candidates’ skills. I see this as a problem given that you often don’t have
+in-house resources to ask the right questions or grade them in an inpartial
+manner.
+
+I also would love to learn how hard is for you to establishing company-wide
+standards for open positions or even the career ladder. 
+
+I’m not trying to sell anything – just looking to learn about your business’s
+problems so I can build something that helps you grow your business.
+
+Cheers,
+João
+

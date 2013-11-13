@@ -1,3 +1,8 @@
+# encoding: UTF-8
+
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
 require "dotenv"
 require "mail"
 require "csv"
@@ -44,11 +49,11 @@ CSV.foreach(csv_file) do |row|
   row_with_headers[:Position] = row_with_headers[:Positions].split(",").first
 
   Mail.deliver do
-    content_type "text/plain; charset=utf-8"
+    content_type "text/html; charset=utf-8"
     from    'joao.castrofigueiredo@gmail.com'
-    to      'joao.castrofigueiredo@gmail.com'
-    #to      row_with_headers[:'Company Email']
-    subject 'Here is the image you wanted'
+    # to      'vogait@gmail.com, joao.castrofigueiredo@gmail.com, pchambino@gmail.com'
+    to      row_with_headers[:'Company Email']
+    subject 'Asking for insights about your hiring process'
     body    sprintf(email_template, row_with_headers)
   end
 

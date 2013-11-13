@@ -1,4 +1,5 @@
 HireBuddy::Application.routes.draw do
+  get "candidates/index"
   get "landing/welcome"
   get "landing/styleguide"
   # The priority is based upon order of creation: first created -> highest priority.

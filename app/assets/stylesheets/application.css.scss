@@ -14,9 +14,22 @@
 @import "component/landing-zone";
 @import "component/button";
 @import "component/carousel";
+@import "component/sidebar";
 
 .grid-container {
   @include outer-container;
+}
+
+body {
+	background: $grey-light;
+}
+
+.main-container {
+	box-shadow: -5px 0px 10px -4px;
+	float: left;
+	height: 100%;
+	width: 960px;
+	overflow: hidden;
 }
 
 html, body {

@@ -1,18 +1,13 @@
-Hello %{Company},
-I saw your %{Position} position on %{Source} recently.
+<p>Hello %{Company},</p>
 
-I’m building a product that will help companies hire the best people, and I hope
-you might be open in sharing some insights about your process for evaluating
-candidates’ skills. I see this as a problem given that you often don’t have
-in-house resources to ask the right questions or grade them in an inpartial
-manner.
+<p>I saw your %{Position} position on %{Source} recently.</p>
 
-I also would love to learn how hard is for you to establishing company-wide
-standards for open positions or even the career ladder. 
+<p>I'm building a product that aims to help companies hire the best people, and I hope you might be open to share some insights about your process for <strong>evaluating candidates' skills</strong>. The issue I'm trying to address is that companies often don't have in-house resources to ask the right questions or even grade them in an impartial and informed manner.</p>
 
-I’m not trying to sell anything – just looking to learn about your business’s
-problems so I can build something that helps you grow your business.
+<p>I also would love to learn how hard it is for you to <strong>establish company-wide standards</strong> for open positions or even the career ladder.</p>
 
-Cheers,
+<p>I'm not trying to sell anything – just looking to learn about your business's problems so I can build something that helps you grow your business. </p>
+
+Cheers from Portugal,<br>
 João
 

@@ -1,0 +1,88 @@
+<%#= render 'form' %>
+
+<div class="modal-form new-interview-form">
+  <%= form_for(@interview) do |f| %>
+
+    <h3>New Interview</h3>
+
+    <% if @interview.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@interview.errors.count, "error") %> prohibited this interview from being saved:</h2>
+
+        <ul>
+        <% @interview.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="dinamic-field-container position focused">
+        <%= f.label :position, "Select a position" %><br>
+        <%= f.hidden_field :position, class: 'hiddenInput' %>
+        <span class="field-placeholder">&nbsp;</span>
+    </div>
+
+    <div class="dinamic-field-container candidate-id">
+        <%= f.label :candidate_id, "Select one candidate" %>
+        <%= f.hidden_field :candidate_id, class: 'hiddenInput' %>
+        <span class="field-placeholder">&nbsp;</span>
+    </div>
+    
+    <div class="dinamic-field-container interviewer-id">
+        <%= f.label :interviewer_id, "Select one interviewer" %>
+        <%= f.hidden_field :interviewer_id, class: 'hiddenInput' %>
+        <span class="field-placeholder">&nbsp;</span>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Creating interview', class: 'btn-flat btn-large c1 submit-btn' %>
+    </div>
+  <% end %>
+</div>
+
+<article class="modal-form-data-container focused" data-item-query=".position-list .position" data-form-field-query=".position" data-hidden-input-key="position" data-field-placeholder="position">
+  <h5>Select Position</h5>
+  <ul class="list list-small position-list">
+    <% ["Frontend Enginner", "Backend Engineer", "Quality Assurance"].each do |position| %>
+    <li class="item position" data-position="<%= position %>">
+      <img src="http://media-cache-ec0.pinimg.com/avatars/flatdsgn_1370860445_30.jpg" class="item-photo">
+      <div class="item-details">
+        <span class="item-info"><%= position %></span>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</article>
+
+
+<article class="modal-form-data-container" data-item-query=".candidate-list .candidate" data-form-field-query=".candidate-id" data-hidden-input-key="candidateId" data-field-placeholder="candidateName">
+  <h5>Select one candidate</h5>
+  <ul class="list candidate-list">
+    <% @candidates.each do |candidate| %>
+    <li class="item candidate" data-candidate-id="<%= candidate.id %>" data-candidate-name="<%= candidate.name %>">
+      <img src="<%= candidate.photo %>" class="item-photo" />
+      <div class="item-details">
+        <h4 class="item-info item-info-main"><%= candidate.name %></h4>
+        <span class="item-info"><%= candidate.current_position %></span>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</article>
+
+<article class="modal-form-data-container"  data-item-query=".interviewer-list .interviewer" data-form-field-query=".interviewer-id" data-hidden-input-key="interviewerId" data-field-placeholder="interviewerName">
+  <h6>Select one or more interviewers</h6>
+  <ul class="list interviewer-list">
+    <% @interviewers.each do |interviewer| %>
+    <li class="item interviewer" data-interviewer-id="<%= interviewer.id %>" data-interviewer-name="<%= interviewer.name %>">
+      <img src="<%= interviewer.photo %>" class="item-photo" />
+      <div class="item-details">
+        <h4 class="item-info item-info-main"><%= interviewer.name %></h4>
+        <span class="item-info"><%= interviewer.position %></span>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</article>
+<%= link_to 'Back', interviews_path %>

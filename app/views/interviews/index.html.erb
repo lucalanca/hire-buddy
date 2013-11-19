@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Candidate</th>
+      <th>State</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interviews.each do |interview| %>
+      <tr>
+      	<td><%= interview.position %></td>
+      	<td><%= interview.candidate.to_s %></td>
+      	<td><%= interview.state %></td>
+        <td><%= link_to 'Show', interview %></td>
+        <td><%= link_to 'Edit', edit_interview_path(interview) %></td>
+        <td><%= link_to 'Destroy', interview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interview', new_interview_path, class: "btn-flat c4" %>

@@ -54,4 +54,10 @@ gem 'quiet_assets' # Cause asset logging are the wuuurst
 gem 'sass-rails',    '~> 4.0.0'
 gem 'neat'
 gem 'normalize-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+
+##################
+#  Other Stuff   #
+##################
+gem 'uifaces'

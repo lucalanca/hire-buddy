@@ -1,0 +1,37 @@
+.modal-form {
+	padding: ($padding-base-horizontal / 2);
+	width: 300px;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	border: 1px solid rgba(0,0,0,0.1); 
+	.dinamic-field-container {
+		padding: ($padding-base-horizontal / 2);
+		.field-placeholder {
+			display: block;
+			padding: $padding-base-vertical $padding-base-horizontal;
+			background: rgba(0,0,0,0.1);
+			margin-bottom: 0;
+		}
+		&.focused {
+			background: rgba(0,0,0,0.1);
+		}
+	}
+
+	.actions {
+		padding: ($padding-base-horizontal / 2);
+		.submit-btn {
+			width: 100%;
+		}
+
+	}
+
+	
+}
+
+.modal-form-data-container {
+	display: none;
+	&.focused {
+		display: block;
+	}
+}

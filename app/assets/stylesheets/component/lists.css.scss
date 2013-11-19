@@ -1,0 +1,70 @@
+@mixin itemSize($itemH, $itemW, $photoW, $padding-vertical, $padding-horizontal) {
+	padding: $padding-vertical $padding-horizontal;
+	width: $itemW;
+	height: $itemH;
+	margin-bottom: $padding-vertical; 
+	margin-right: $padding-vertical; 
+	.item-photo { width: $photoW; }
+	.item-details {
+		width: $itemW - $photoW - 2 * $padding-horizontal;
+		padding: $padding-vertical $padding-horizontal;
+	}
+}
+
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	@include clearfix;
+	.item {
+		$itemH: 65px;
+		$itemW: 450px;
+		$photoW: 50px;
+		@include itemSize($itemH, $itemW, $photoW, $padding-base-vertical, $padding-base-horizontal);
+  		float: left;
+  		@include clearfix;
+		.item-photo {
+			float: left;
+			border-radius: 50%;
+			box-shadow: 0 1px 5px rgba(0,0,0,0.4);	
+			transition: linear 0.25s;
+		}
+
+		.item-details {
+			float: left;
+			display: block;
+			padding-right: 0;
+		}
+		.item-info {
+			/* essential */
+			text-overflow: ellipsis;
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			display: block;
+
+			@extend .zeta;
+			font-weight: 300;
+			margin-bottom: 0;
+		}
+		.item-info-main {
+			font-weight: 400;
+			margin: 0;
+		}
+
+		&:hover {
+			background: rgba(0,0,0,0.1);
+			cursor: pointer;
+		}
+	}
+}
+
+.list-small .item {
+	$itemH: 45px;
+	$itemW: 300px;
+	$photoW: 30px;
+	@include itemSize($itemH, $itemW, $photoW, $padding-small-vertical, $padding-small-horizontal);
+	.item-info {
+		line-height: $photoW;
+	}
+}

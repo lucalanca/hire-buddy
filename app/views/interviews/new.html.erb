@@ -41,48 +41,42 @@
   <% end %>
 </div>
 
-<article class="modal-form-data-container focused" data-item-query=".position-list .position" data-form-field-query=".position" data-hidden-input-key="position" data-field-placeholder="position">
-  <h5>Select Position</h5>
-  <ul class="list list-small position-list">
+<%= modal_list_container 'positions-data-container focused', { item_query: ".position-list .position", form_field_query: ".position", hidden_input_key: "position", field_placeholder: "position" } do %>
+  <h5>Select one position:</h5>
+  <%= modal_list "position-list list-small" do %>
     <% ["Frontend Enginner", "Backend Engineer", "Quality Assurance"].each do |position| %>
-    <li class="item position" data-position="<%= position %>">
-      <img src="http://media-cache-ec0.pinimg.com/avatars/flatdsgn_1370860445_30.jpg" class="item-photo">
-      <div class="item-details">
-        <span class="item-info"><%= position %></span>
-      </div>
-    </li>
-    <% end %>
-  </ul>
-</article>
+      <%= modal_item "position", { position: position } do %>
+        <img src="http://media-cache-ec0.pinimg.com/avatars/flatdsgn_1370860445_30.jpg" class="item-photo">
+        <div class="item-details">
+          <span class="item-info"><%= position %></span>
+        </div>
+      <% end %> 
+    <% end %> 
+  <% end %> 
+<% end %> 
 
+<%= modal_list_data_field @candidates, 'candidate', 'id', 'name' do %>
+  YEY
+<% end %>
 
-<article class="modal-form-data-container" data-item-query=".candidate-list .candidate" data-form-field-query=".candidate-id" data-hidden-input-key="candidateId" data-field-placeholder="candidateName">
-  <h5>Select one candidate</h5>
-  <ul class="list candidate-list">
-    <% @candidates.each do |candidate| %>
-    <li class="item candidate" data-candidate-id="<%= candidate.id %>" data-candidate-name="<%= candidate.name %>">
-      <img src="<%= candidate.photo %>" class="item-photo" />
-      <div class="item-details">
-        <h4 class="item-info item-info-main"><%= candidate.name %></h4>
-        <span class="item-info"><%= candidate.current_position %></span>
-      </div>
-    </li>
-    <% end %>
-  </ul>
-</article>
+<%#= modal_list_data_field @interviewers, 'interviewer', 'id', 'name' do %>
+  <!-- I'm an interviewer baby -->
+<%# end %>
 
-<article class="modal-form-data-container"  data-item-query=".interviewer-list .interviewer" data-form-field-query=".interviewer-id" data-hidden-input-key="interviewerId" data-field-placeholder="interviewerName">
-  <h6>Select one or more interviewers</h6>
-  <ul class="list interviewer-list">
+<%= modal_list_container "interviewers-data-container", { item_query: ".interviewer-list .interviewer", form_field_query: ".interviewer-id", hidden_input_key: "interviewerId", field_placeholder: "interviewerName" } do %>
+  <h5>Select one or more interviewers:</h5>
+  <%= modal_list "interviewer-list" do %>
     <% @interviewers.each do |interviewer| %>
-    <li class="item interviewer" data-interviewer-id="<%= interviewer.id %>" data-interviewer-name="<%= interviewer.name %>">
-      <img src="<%= interviewer.photo %>" class="item-photo" />
-      <div class="item-details">
-        <h4 class="item-info item-info-main"><%= interviewer.name %></h4>
-        <span class="item-info"><%= interviewer.position %></span>
-      </div>
-    </li>
+      <%= modal_item "interviewer", { interviewer_id: interviewer.id, interviewer_name: interviewer.name } do %>
+        <img src="<%= interviewer.photo %>" class="item-photo" />
+        <div class="item-details">
+          <h4 class="item-info item-info-main"><%= interviewer.name %></h4>
+          <span class="item-info"><%= interviewer.position %></span>
+        </div>
+      <% end %>
     <% end %>
-  </ul>
-</article>
+  <% end %>
+<% end %>
+
+
 <%= link_to 'Back', interviews_path %>

@@ -42,44 +42,42 @@ $(function() {
 			})
 			;
 
-			// attach click event listeners to dataContainers
-			dataContainers.each(function (index, container) {
-				var itemQuery = $(container).data('item-query'),
-					formFieldQuery = $(container).data('form-field-query'),
-					hiddenInputKey = $(container).data('hidden-input-key'),
-					fieldPlaceholder = $(container).data('field-placeholder')
-					;
+		// attach click event listeners to dataContainers
+		dataContainers.each(function (index, container) {
+			var itemQuery = $(container).data('item-query'),
+				formFieldQuery = $(container).data('form-field-query'),
+				hiddenInputKey = $(container).data('hidden-input-key'),
+				fieldPlaceholder = $(container).data('field-placeholder'),
+				dataContainerId = $(container).attr('id')
+				;
 
-				$(itemQuery).click( function (e) {
-					var itemDataAttributes = $(e.currentTarget).data();
-					handleClickedDataToCoupon(e, itemDataAttributes, formFieldQuery, '.hiddenInput', hiddenInputKey, '.field-placeholder', fieldPlaceholder);
-					if ($(container).hasClass('focused')) {
-						$(container).hide({
-							complete: function () {
-								$(this).removeClass('focused');
-							}
-						});
-						$(container).next('.modal-form-data-container').show({
-							complete: function () {
-								$(this).addClass('focused');		
-							}
-						});
-					}
-				});
+			// ATTACH CLICK EVENT
+			$(itemQuery).click( function (e) {
+				var itemDataAttributes = $(e.currentTarget).data();
+				handleClickedDataToCoupon(e, itemDataAttributes, formFieldQuery, '.hiddenInput', hiddenInputKey, '.field-placeholder', fieldPlaceholder);
+				if ($(container).hasClass('focused')) {
+					$(container).hide({
+						complete: function () {
+							$(this).removeClass('focused');
+						}
+					});
+					$(container).next('.modal-form-data-container').show({
+						complete: function () {
+							$(this).addClass('focused');		
+						}
+					});
+				}
 			});
-	}
 
-	// $('.candidate-list .candidate').click( function (e) {
-	// 	handleClickedDataToCoupon(e, { id: 'candidate-id', name: 'candidate-name'}, '.candidate-id', '.hiddenInput', 'id', '.field-placeholder', 'name');
-	// });
-
-	// $('.interviewer-list .interviewer').click( function (e) {
-	// 	handleClickedDataToCoupon(e, { id: 'candidate-id', name: 'candidate-name'}, '.interviewer-id', '.hiddenInput', 'id', '.field-placeholder', 'name');
-	// });
-
-	// $('.position-list .position').click( function (e) {
-	// 	handleClickedDataToCoupon(e, { position: 'position' }, '.position', '.hiddenInput', 'position', '.field-placeholder', 'position')
-	// });
+			// ATTACH SEARCH PLUGIN
+			if (dataContainerId) {
+				new List(dataContainerId, { 
+					valueNames: [ fieldPlaceholder ],
+					item: itemQuery
+				});
+			}
+		});
+	};
 
 	interviewForm();
 

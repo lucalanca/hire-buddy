@@ -53,10 +53,20 @@ questions = Question.create([
 ])
 p "questions created"
 
+Position.delete_all
+p "creating positions"
+positions = Position.create([
+	{ name: "Frontend Engineer"},
+	{ name: "Backend Engineer"},
+	{ name: "Quality Assurance Engineer"}
+])
+p "positions created"
+
+
 Interview.delete_all
 p "creating interviews"
 interviews = Interview.create([
-	{ position: "Frontend Developer", candidate_id: candidates.first.id, state: "SCHEDULE" },
-	{ position: "Frontend Developer", candidate_id: candidates.last.id, state: "SCHEDULE" }
+	{ position_id: "Frontend Developer", candidate_id: candidates.first.id, interviewer_id: interviewers.first.id, position_id: positions.first.id, state: "SCHEDULE" },
+	{ position_id: "Frontend Developer", candidate_id: candidates.last.id,  interviewer_id: interviewers.first.id, position_id: positions.first.id, state: "SCHEDULE" }
 ])
 p "interviews created"

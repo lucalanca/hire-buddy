@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117190849) do
+ActiveRecord::Schema.define(version: 20131121205340) do
 
   create_table "candidates", force: true do |t|
     t.string   "name"
@@ -30,16 +30,23 @@ ActiveRecord::Schema.define(version: 20131117190849) do
   end
 
   create_table "interviews", force: true do |t|
-    t.string   "position"
     t.string   "state"
     t.integer  "candidate_id"
     t.integer  "interviewer_id"
+    t.integer  "position_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "interviews", ["candidate_id"], name: "index_interviews_on_candidate_id"
   add_index "interviews", ["interviewer_id"], name: "index_interviews_on_interviewer_id"
+  add_index "interviews", ["position_id"], name: "index_interviews_on_position_id"
+
+  create_table "positions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", force: true do |t|
     t.text     "title"

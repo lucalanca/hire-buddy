@@ -3,7 +3,7 @@
 <div class="modal-form new-interview-form">
   <%= form_for(@interview) do |f| %>
 
-    <h3>New Interview</h3>
+    <h3 class="modal-title">New Interview</h3>
 
     <% if @interview.errors.any? %>
       <div id="error_explanation">
@@ -17,9 +17,9 @@
       </div>
     <% end %>
 
-    <div class="dinamic-field-container position focused">
-        <%= f.label :position, "Select a position" %><br>
-        <%= f.hidden_field :position, class: 'hiddenInput' %>
+    <div class="dinamic-field-container position-id focused">
+        <%= f.label :position_id, "Select a position" %><br>
+        <%= f.hidden_field :position_id, class: 'hiddenInput' %>
         <span class="field-placeholder">&nbsp;</span>
     </div>
 
@@ -41,42 +41,50 @@
   <% end %>
 </div>
 
-<%= modal_list_container 'positions-data-container focused', { item_query: ".position-list .position", form_field_query: ".position", hidden_input_key: "position", field_placeholder: "position" } do %>
-  <h5>Select one position:</h5>
-  <%= modal_list "position-list list-small" do %>
-    <% ["Frontend Enginner", "Backend Engineer", "Quality Assurance"].each do |position| %>
-      <%= modal_item "position", { position: position } do %>
-        <img src="http://media-cache-ec0.pinimg.com/avatars/flatdsgn_1370860445_30.jpg" class="item-photo">
-        <div class="item-details">
-          <span class="item-info"><%= position %></span>
-        </div>
-      <% end %> 
-    <% end %> 
-  <% end %> 
-<% end %> 
+<%#= modal_list_container 'positions-data-container focused', { item_query: ".position-list .position", form_field_query: ".position", hidden_input_key: "position", field_placeholder: "position" } do %>
+  <!-- <h5>Select one position:</h5> -->
+  <%#= modal_list "position-list list-small" do %>
+    <%# ["Frontend Enginner", "Backend Engineer", "Quality Assurance"].each do |position| %>
+      <%#= modal_item "position", { position: position } do %>
+        <!-- <img src="http://media-cache-ec0.pinimg.com/avatars/flatdsgn_1370860445_30.jpg" class="item-photo"> -->
+        <!-- <div class="item-details"> -->
+          <!-- <span class="item-info"><%#= position %></span> -->
+        <!-- </div> -->
+      <%# end %> 
+    <%# end %> 
+  <%# end %> 
+<%# end %> 
 
-<%= modal_list_data_field @candidates, 'candidate', 'id', 'name' do %>
-  YEY
+<%= modal_list_data_field(@positions, 'position', 'id', 'name', '', ['name'], 'focused list-small',) do %>
+  Position
 <% end %>
+
+<%= modal_list_data_field(@candidates, 'candidate', 'id', 'name', 'photo', ['name', 'current_position']) do %>
+  Candidate
+<% end %>
+
+<%= modal_list_data_field(@interviewers, 'interviewer', 'id', 'name', 'photo', ['name', 'position']) do %>
+  Interviewer
+<% end %>
+
+
+
 
 <%#= modal_list_data_field @interviewers, 'interviewer', 'id', 'name' do %>
   <!-- I'm an interviewer baby -->
 <%# end %>
 
-<%= modal_list_container "interviewers-data-container", { item_query: ".interviewer-list .interviewer", form_field_query: ".interviewer-id", hidden_input_key: "interviewerId", field_placeholder: "interviewerName" } do %>
-  <h5>Select one or more interviewers:</h5>
-  <%= modal_list "interviewer-list" do %>
-    <% @interviewers.each do |interviewer| %>
-      <%= modal_item "interviewer", { interviewer_id: interviewer.id, interviewer_name: interviewer.name } do %>
-        <img src="<%= interviewer.photo %>" class="item-photo" />
-        <div class="item-details">
-          <h4 class="item-info item-info-main"><%= interviewer.name %></h4>
-          <span class="item-info"><%= interviewer.position %></span>
-        </div>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-
-
-<%= link_to 'Back', interviews_path %>
+<%#= modal_list_container "interviewers-data-container", { item_query: ".interviewer-list .interviewer", form_field_query: ".interviewer-id", hidden_input_key: "interviewerId", field_placeholder: "interviewerName" } do %>
+  <!-- <h5>Select one or more interviewers:</h5> -->
+  <%#= modal_list "interviewer-list" do %>
+    <%# @interviewers.each do |interviewer| %>
+      <%#= modal_item "interviewer", { interviewer_id: interviewer.id, interviewer_name: interviewer.name } do %>
+        <!-- <img src="<%#= interviewer.photo %>" class="item-photo" />
+        <div class="item-details"> -->
+          <!-- <h4 class="item-info item-info-main"><%#= interviewer.name %></h4> -->
+          <!-- <span class="item-info"><%#= interviewer.position %></span> -->
+        <!-- </div> -->
+      <%# end %>
+    <%# end %>
+  <%# end %>
+<%# end %>

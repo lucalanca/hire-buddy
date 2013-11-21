@@ -23,11 +23,17 @@
 		@include itemSize($itemH, $itemW, $photoW, $padding-base-vertical, $padding-base-horizontal);
   		float: left;
   		@include clearfix;
+  		.item-icon {
+  			background: $color1;
+  			color: white;
+  			text-align: center;
+  		}
 		.item-photo {
 			float: left;
 			border-radius: 50%;
 			box-shadow: 0 1px 5px rgba(0,0,0,0.4);	
 			transition: linear 0.25s;
+			margin: 5px 0;
 		}
 
 		.item-details {
@@ -43,8 +49,8 @@
 			overflow: hidden;
 			display: block;
 			padding: 2px 0;
-
-			@extend .zeta;
+			font-size: 16px;
+			line-height: 16px;
 			font-weight: 300;
 			margin-bottom: 0;
 		}
@@ -62,10 +68,13 @@
 
 .list-small .item {
 	$itemH: 45px;
-	$itemW: 300px;
+	$itemW: 250px;
 	$photoW: 30px;
 	@include itemSize($itemH, $itemW, $photoW, $padding-small-vertical, $padding-small-horizontal);
-	.item-info {
+	.item-info, .item-photo {
 		line-height: $photoW;
+	}
+	.item-info {
+		text-align: center;
 	}
 }

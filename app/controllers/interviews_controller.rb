@@ -17,6 +17,7 @@ class InterviewsController < ApplicationController
     @interview    = Interview.new
     @candidates   = Candidate.all
     @interviewers = Interviewer.all
+    @positions    = Position.all
   end
 
   # GET /interviews/1/edit
@@ -71,6 +72,6 @@ class InterviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interview_params
-      params.require(:interview).permit(:candidate_id, :position)
+      params.require(:interview).permit(:candidate_id, :position_id, :interviewer_id)
     end
 end

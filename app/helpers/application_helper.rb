@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def modal_list_data_field(array_data, ui_name, hidden_key, placeholder_key, &block)
+	def modal_list_data_field(array_data, ui_name, hidden_key, placeholder_key, photo_field, details_field_array, focused='', &block)
 		content = capture(&block)
 		template = ""
 		array_data.each do |element|
@@ -8,10 +8,11 @@ module ApplicationHelper
 				"#{ui_name}_#{placeholder_key}".to_sym 	=> element[placeholder_key]
 			}
 			template << modal_item(ui_name, item_data_object) do 
-				content
+				modal_item_details(element, photo_field, details_field_array)
 			end
 		end
-		list_container_class = ui_name.pluralize + "-data-container"
+		list_container_class = ui_name.pluralize + "-data-container " + focused
+
 		list_container_data_object = {
 			item_query: ".#{ui_name}-list .#{ui_name}",
 			form_field_query: ".#{ui_name}-#{hidden_key}",
@@ -46,5 +47,22 @@ module ApplicationHelper
 	def modal_item(klass, data_obj={}, &block)
 		content = capture(&block)  
   		content_tag(:li, content, class: 'item ' + klass, data: data_obj )  
+	end
+
+	def modal_item_details(item, photo_field, details_fields_array)
+		if photo_field.empty?
+			icon = content_tag(:span, item[details_fields_array[0]][0...1], class: 'item-photo item-icon')
+		else
+			icon = tag("img", src: item[photo_field], class: 'item-photo')
+		end
+		
+		template = ""
+		details_fields_array.each_with_index do |field, index|
+			klass = "item-info"
+			klass += " item-info-main" if index == 0
+			template << content_tag(:span, item[field], class: klass)
+		end
+		details = content_tag(:div, template.html_safe, class: "item-details")
+		(icon + details).html_safe
 	end
 end

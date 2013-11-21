@@ -69,13 +69,13 @@ $(function() {
 				}
 			});
 
-			// ATTACH SEARCH PLUGIN
-			if (dataContainerId) {
-				new List(dataContainerId, { 
-					valueNames: [ fieldPlaceholder ],
-					item: itemQuery
-				});
-			}
+			// // ATTACH SEARCH PLUGIN
+			// if (dataContainerId) {
+			// 	new List(dataContainerId, { 
+			// 		valueNames: [ fieldPlaceholder ],
+			// 		item: itemQuery
+			// 	});
+			// }
 		});
 	};
 

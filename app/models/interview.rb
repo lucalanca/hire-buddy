@@ -1,4 +1,5 @@
 class Interview < ActiveRecord::Base
 	belongs_to :candidate
-	# has_one :interviewer
+	belongs_to :interviewer
+	belongs_to :position
 end

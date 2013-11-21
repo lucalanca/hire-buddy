@@ -5,8 +5,12 @@
 	top: 30px;
 	right: 30px;
 	border: 1px solid rgba(0,0,0,0.1); 
+	.modal-title {
+		text-align: center;
+	}
 	.dinamic-field-container {
 		padding: ($padding-base-horizontal / 2);
+		@include transition (all .3s ease-in);
 		.field-placeholder {
 			display: block;
 			padding: $padding-base-vertical $padding-base-horizontal;
@@ -21,6 +25,7 @@
 	.actions {
 		padding: ($padding-base-horizontal / 2);
 		.submit-btn {
+			@include transition (all .3s ease-in);
 			width: 100%;
 		}
 

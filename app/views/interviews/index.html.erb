@@ -3,6 +3,7 @@
     <tr>
       <th>Position</th>
       <th>Candidate</th>
+      <th>Interviewer</th>
       <th>State</th>
       <th></th>
       <th></th>
@@ -13,8 +14,9 @@
   <tbody>
     <% @interviews.each do |interview| %>
       <tr>
-      	<td><%= interview.position %></td>
-      	<td><%= interview.candidate.to_s %></td>
+      	<td><%= interview.position.name %></td>
+      	<td><%= interview.candidate.name %></td>
+        <td><%= interview.interviewer.name %></td>
       	<td><%= interview.state %></td>
         <td><%= link_to 'Show', interview %></td>
         <td><%= link_to 'Edit', edit_interview_path(interview) %></td>
@@ -24,6 +26,6 @@
   </tbody>
 </table>
 
-<br>
+  
 
 <%= link_to 'New Interview', new_interview_path, class: "btn-flat c4" %>
